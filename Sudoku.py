@@ -1,5 +1,3 @@
-from random import randint
-from time import time
 class Sudoku:
     def __init__(self, lista):
         self.lista = lista
