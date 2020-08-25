@@ -18,11 +18,12 @@ class Sudoku:
     def get_cuadrantes(self):
         cuadrantes = []
         for fila in [(0, 3), (3, 6), (6, 9)]:
-            paquete = self.get_filas()[fila[0]:fila[1]]  #  Hace un 'paquete' de los elementos (a, b) de la lista
+            # Hace un 'paquete' de los elementos (a, b) de la lista
+            paquete = self.get_filas()[fila[0]:fila[1]]
             for columna in [(0, 3), (3, 6), (6, 9)]:
                 cuadrante = paquete[0][columna[0]:columna[1]] + \
-                            paquete[1][columna[0]:columna[1]] + \
-                            paquete[2][columna[0]:columna[1]]
+                    paquete[1][columna[0]:columna[1]] + \
+                    paquete[2][columna[0]:columna[1]]
 
                 cuadrantes.append(cuadrante)
         return cuadrantes
@@ -33,7 +34,7 @@ class Sudoku:
                 if self.get_filas()[fila][elem] not in {i for i in range(1, 10)}:
                     espacio_encontrado = (fila, elem)
                     return espacio_encontrado
-        #return False
+        # return False
 
     def is_valid(self):
         def se_repite(lista):
@@ -58,7 +59,7 @@ class Sudoku:
                 break
 
         return (columnas_validas and filas_validas and cuadrantes_validos)
-            
+
     def insert(self, num, fila, columna):
         self.lista[fila][columna] = num
 
@@ -91,7 +92,7 @@ class Sudoku:
     def __repr__(self):
         representacion = ''
         for fila in self.get_filas():
-            string_fila =  str(fila)[1:-1]
+            string_fila = str(fila)[1:-1]
             representacion += string_fila + '\n'
         return representacion
 
