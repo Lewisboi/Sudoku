@@ -91,9 +91,16 @@ class Sudoku:
 
     def __repr__(self):
         representacion = ''
-        for fila in self.get_filas():
-            string_fila = str(fila)[1:-1]
-            representacion += string_fila + '\n'
+        filas = self.get_filas()
+        for i, fila in enumerate(filas):
+            fila_con_divisiones = ''
+            for j, char in enumerate(fila):
+                fila_con_divisiones += str(char) + ' '
+                if ((j + 1) % 3 == 0) and j != 8:
+                    fila_con_divisiones += '| '
+            representacion += fila_con_divisiones + '\n'
+            if ((i + 1) % 3 == 0) and i != 8:
+                representacion += 21 * '-' + '\n'
         return representacion
 
 
